@@ -21,10 +21,18 @@
             tests: {}
         });
         </script>
+        <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "50%";
+}
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 	</head>
 	<body <?php body_class(); ?>>
-
+    <div class="static-background">
 		<!-- wrapper -->
 		<div class="wrapper">
 
@@ -35,16 +43,24 @@
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
+							<img class="menu-logo" src="<?php echo get_template_directory_uri(); ?>/img/HORIZONTAL_LOGO.png" alt="Logo" class="logo-img">
 						</a>
 					</div>
+                
+                    <div class="burgermenu">
+                            <span class="burgermenu-span" onclick="openNav()">☰</span>
+                    </div>
 					<!-- /logo -->
+                    <!-- SIDENAV -->
+                    <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <?php 
+                        wp_nav_menu( array(
+                            'menu' => 'Burger menu'
+                            ) ); 
+                    ?>
+                    </div>
+                    <!-- SIDENAV END -->
 
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-			</header>
+			</header> 
 			<!-- /header -->

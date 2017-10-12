@@ -33,6 +33,16 @@ body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
 }
+
+
+.static-background {
+    background-image:url('img/forest.jpg');
+    background-repeat: no-repeat;
+    max-width:100%;
+    height:100vh;
+    background-size:cover;
+}
+
 /* clear */
 .clear:before,
 .clear:after {
@@ -50,6 +60,12 @@ img {
 	max-width:100%;
 	vertical-align:bottom;
 }
+
+.menu-logo {
+    width:543px;
+    vertical-align:bottom;
+}
+
 a {
 	color:#444;
 	text-decoration:none;
@@ -86,10 +102,13 @@ input:focus {
 }
 /* logo */
 .logo {
-
+    text-align: center;
+    margin-top: 5%;
 }
 .logo-img {
-
+    width:259px;
+    height:121px;
+    display:inline-block;
 }
 /* nav */
 .nav {
@@ -134,18 +153,53 @@ input:focus {
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
-
+/*
 @media only screen and (min-width:320px) {
-
+     .login-info {
+        margin-top:0px;
+    }
+    
+    .username {
+        width:75%;
+    }
+    .password{
+        width:75%
+    }
 }
 @media only screen and (min-width:480px) {
-
+     .login-info {
+        margin-top:0px;
+    }
+    
+    .username {
+       width:75%;
+    }
+    .password{
+        width:75%;
+    }
 }
 @media only screen and (min-width:768px) {
-
+    .login-info {
+        margin-top:0px;
+    }
+    
+    .username {
+        
+    }
+    .password{
+        
+    }
 }
 @media only screen and (min-width:1024px) {
-
+    .login-info {
+        padding-top:400px;
+    }
+    .username {
+        width:465px;
+    }
+    .password {
+        width:465px;
+    }
 }
 @media only screen and (min-width:1140px) {
 
@@ -156,8 +210,443 @@ input:focus {
 @media only screen and (-webkit-min-device-pixel-ratio:1.5),
 	   only screen and (min-resolution:144dpi) {
 
+} */
+
+    /* default styles here for older browsers. 
+       I tend to go for a 600px - 960px width max but using percentages
+    */
+
+    @media only screen and (min-device-width:320px){
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+  .app-container {
+    max-width:100%;
+    text-align:center;
+}
+        
+/* SIDENAV CSS */
+    .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color:white;
+}
+        #menu-burger-menu {
+            padding-left:5px;
+            text-align:left;
+            font-size:20px;
+        }
+        #menu-item-107 {
+            background: none;
+            text-align:left;
+            font-size:20px;
+            margin-top:5px;
+}
+         #menu-item-107 a {
+            padding:0;
+            text-align:left;
+            font-size:20px;
+            margin:0;
+            text-decoration: underline;
+}
+        #menu-item-108 {
+            background: none;
+            text-align:left;
+            font-size:20px;
+            margin-top:5px;
+}
+        #menu-item-108 a {
+            padding:0;
+            text-align:left;
+            font-size:20px;
+            margin:0;
+            text-decoration: underline;
+}
+        #menu-item-110 {
+            background: none;
+            text-align:left;
+            font-size:20px;
+            margin-top:5px;
+}
+        #menu-item-110 a {
+            padding:0;
+            text-align:left;
+            font-size:20px;
+            margin:0;
+            text-decoration: underline;
+}
+/* SIDENAV CSS END */
+/* NAVIGATION CSS */
+        .navbar-right {
+            display:none;
+        }
+        .navbar-inner {
+            list-style: none;
+            text-decoration: none;
+            width:100%;
+            margin:auto;
+        }
+        .navbar-header {
+            display:none;
+        }
+            ul li {
+        list-style: none;
+    }
+        #menu-main-menu {
+            padding:0;
+        }
+    .navbar-title-logo {
+        display: none;
+    }
+        .navbar-collapse {
+            width:100%;
+            margin:auto;
+        }
+        
+        .menu_my_bootstrap_menu_settings_main-menu_container_class {
+            padding:0;
+        }
+        .navbar-left {
+            padding:0;
+        }
+    .menu-item {
+        width:100%;
+        height:50px;
+        opacity:0.9;
+        font-size:30px;
+        background-color:#92C83E;
+        color:white;
+        margin-top:25px;
+        text-align: center;
+        align-content: center;
+        margin-left: auto;
+        margin-right:auto;
+        padding:1%;
+    }
+    .menu-item a {
+        color:white;
+        text-align: center;
+        align-content: center;
+        margin-top: 50%;
+        margin-bottom: 50%;
+        
+    }
+        
+        .previous-page {
+            height:50px;
+            width:50px;
+            border-radius: 50%;
+            background-color:#92C83E;
+            margin: auto;
+            margin-top:15px;
+        }
+        
+        .back-arrow {
+            height:30px;
+            width:22px;
+            text-align: center;
+            align-content: center;
+            margin-top:21%;
+            padding-right:5px;
+        }
+/* NAVIGATION CSS ENDS*/
+        
+        
+/* INSTRUCTION CSS START */
+        .su-spoiler-title {
+            background-color:#92C83E !important;
+            color:white;
+            font-size:30px;
+        }
+        .su-spoiler-style-fancy {
+            background-color:#92C83E;
+            font-size:30px;
+            color:white;
+            background:none !important;
+            border:none !important;
+        }
+        .su-spoiler-style-fancy > .su-spoiler-title {
+            background-color:#92C83E;
+            
+        }
+        .su-accordion {
+            color:white;
+        }
+        .su-spoiler-closed {
+            background-color: #92C83E;
+        }
+        .su-spoiler-content {
+            background-color:#92C83E;
+            font-size:15px;
+        }
+        .su-spoiler {
+            background-color:#92C83E;
+        }
+/* INSTRUCTION CSS END */
+        
+.login-info {
+    max-width:100%;
+    margin:auto;
+    margin-top:5%;
+}
+
+#username.input {
+    border:none;
+    border-bottom: 2px solid;
+    color:white;
+    margin-top:20px;
+    background-color:transparent;
+    width:80%;
+    font-size:30px;
+    
+}
+
+#password.input {
+    border:none;
+    border-bottom: 2px solid;
+    color:white;
+    margin-top:20px;
+    background-color:transparent;
+    width:80%;
+    font-size:30px;
+    
+}
+
+#login-button {
+    width:285px;
+    height:70px;
+    border:5px;
+    background-color:#92C83E;
+    border-radius:5px;
+    color:white;
+    opacity: 0.9;
+    font-size:40px;
+    margin-top:20px;
+}
+
+#forgotpassword-button {
+    border:none;
+    color:white;
+    margin-top:20px;
+    background-color:transparent;
+    font-size:30px;
+    width:100%;
+    text-decoration: underline;
+    font-style:italic;
+    
+    
+}
+        
+        .logo {
+            max-width:120px;
+            max-height:121px;
+            float:left;
+            margin-bottom:50px;
+        }
+        
+        .burgermenu {
+            float:right;
+            margin-top:5%;
+            font-size:70px;
+            color: white;
+        }
+        
+        .burgermenu-span {
+            font-size: 40px;
+            color:white;
+            float:right;
+        }
+        
+        .burger-icon {
+            max-width:80px;
+            max-height:50px;
+        }
+@media only screen and (min-width:360px){
+        /* styles for browsers larger than 360px; */
+    .login-info {
+        margin-top:40%;
+    }
+    .logo {
+            max-width:200px;
+            max-height:121px;
+            float:left;
+        }
+    .burgermenu {
+            margin-top:10%;
+        }
+}
+    @media only screen and (min-width:768px){
+       /* default iPad screens */
+        #login-info {
+            margin-top:50%;
+        }
+        
+        #username.input {
+            width:465px;
+        }
+        #password.input {
+            width:465px;
+        }
+        
+        .menu-item {
+            height:100px;
+            margin-top:60px;
+            font-size:40px;
+            text-align: center;
+            align-content: center;
+            padding:3%;
+        }
+        .menu-item a {
+            margin: auto;
+            margin-top: 50%;
+            margin-bottom: 50%;
+        }
+        .logo {
+            max-width:259px;
+            max-height:121px;
+            float:left;
+        }
+        .burger-icon {
+            max-width:180px;
+            max-height:120px;
+        }
+        .burgermenu {
+            margin-top:7%;
+        }
+        
+        .back-arrow {
+            height:50px;
+            width:35px;
+        }
+        .previous-page {
+            height:80px;
+            width:80px;
+        }
+        .su-spoiler-title {
+            min-height:60px !important;
+            font-size:40px !important;
+            padding-top:20px !important;
+        }
+        .su-spoiler-icon {
+            top: 20px !important;
+        }
+        .burgermenu-span {
+            font-size: 70px;
+
+        }
+        
+        #menu-item-107 a, #menu-item-108 a, #menu-item-110 a {
+            font-size:40px;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 45px;
+            margin-left: 50px;
+            color:white;
+}
+    }
+    /* different techniques for iPad screening */
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+      /* For portrait layouts only */
+    }
+
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      /* For landscape layouts only */
+        
+    }
+        
+        @media only screen and (min-width:960px){
+        /* styles for browsers larger than 960px; */
+        #username.input {
+            width:465px;
+        }
+        #password.input {
+            width:465px;
+        }
+        #login-info {
+            margin-top:50%;
+        }
+            .menu-item {
+            height:100px;
+            margin-top:60px;
+            font-size:40px;
+            text-align: center;
+            align-content: center;
+            padding:2%;
+        }
+    }
+        @media only screen and (min-width:1080px){
+        /* styles for browsers larger than 960px; */
+        #username.input {
+            width:465px;
+        }
+        #password.input {
+            width:465px;
+        }
+        .login-info {
+            margin-top:15%;
+        }
+    }
+        
+        @media only screen and (min-height:500px) and (max-height:750px){
+        /* styles for browsers larger than 360px; */
+    .login-info {
+        margin-top:40%;
+    }
+            
+            @media only screen and (min-height:1080px){
+        /* styles for browsers larger than 360px; */
+    .login-info {
+        margin-top:15%;
+    }
+                @media only screen and (min-height:1080px) and (max-width:1024px){
+        /* styles for browsers larger than 360px; */
+    .login-info {
+        margin-top:45%;
+    }
+    @media only screen and (min-width:1440px){
+        /* styles for browsers larger than 1440px; */
+        .login-info {
+            margin-top:15%;
+        }
+        
+    }
+    @media only screen and (min-width:2000px){
+        /* for sumo sized (mac) screens */
+        .login-info {
+            margin-top:5%;
+        }
+    }
 /*------------------------------------*\
     MISC
 \*------------------------------------*/
@@ -310,3 +799,7 @@ a img.aligncenter {
 /*------------------------------------*\
     OMAT CSS
 \*------------------------------------*/
+
+        html, body {
+            height:100vh;
+        }

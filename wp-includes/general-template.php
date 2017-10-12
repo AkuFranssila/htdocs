@@ -404,17 +404,18 @@ function wp_login_form( $args = array() ) {
 		'echo' => true,
 		// Default 'redirect' value takes the user back to the request URI.
 		'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
-		'form_id' => 'loginform',
-		'label_username' => __( 'Username or Email Address' ),
+		'form_id' => 'login-info',
+		/*'label_username' => __( 'Username or Email Address' ),
 		'label_password' => __( 'Password' ),
-		'label_remember' => __( 'Remember Me' ),
+		'label_remember' => __( 'Remember Me' ),*/
 		'label_log_in' => __( 'Log In' ),
-		'id_username' => 'user_login',
-		'id_password' => 'user_pass',
-		'id_remember' => 'rememberme',
-		'id_submit' => 'wp-submit',
-		'remember' => true,
-		'value_username' => '',
+		'id_username' => 'username',
+		'id_password' => 'password',
+		/*'id_remember' => 'rememberme',*/
+		'id_submit' => 'login-button',
+		'remember' => false,
+		'value_username' => 'Username',
+        'value_password' => 'Password',
 		// Set 'value_remember' to true to default the "Remember me" checkbox to checked.
 		'value_remember' => false,
 	);
