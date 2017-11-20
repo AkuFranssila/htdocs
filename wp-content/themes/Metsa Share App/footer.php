@@ -5,6 +5,8 @@
 			<!-- /footer -->
 
 		</div>
+    </div>
+</div>
 		<!-- /wrapper -->
 
 		<?php wp_footer(); ?>

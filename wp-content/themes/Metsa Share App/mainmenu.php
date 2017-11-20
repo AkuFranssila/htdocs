@@ -2,15 +2,12 @@
 
 <?php get_header(); ?>
 
-
-    <div class="app-container">
-            
+         
             <?php 
                 wp_nav_menu( array(
                 'menu' => 'Main menu'
                 ) ); 
             ?>
-    </div>
 	<main role="main">
 		
 	</main>

@@ -28,10 +28,21 @@
 /* html element 62.5% font-size for REM use */
 html {
 	font-size:62.5%;
+    height:100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
+    background-image:url('img/forest.jpg');
+    background-repeat: no-repeat;
+    max-width:100%;
+    height:100%;
+    background-size:cover;
+    background-attachment: fixed;
+    
 }
 
 
@@ -41,6 +52,7 @@ body {
     max-width:100%;
     height:100vh;
     background-size:cover;
+    background-attachment: fixed;
 }
 
 /* clear */
@@ -222,7 +234,31 @@ input:focus {
     max-width:100%;
     text-align:center;
 }
-        
+/* MAGNIFIER ICON <span class="ico ico-mglass"></span> */
+        .ico-mglass {
+  position:relative;
+  display:inline-block;
+  background: #fff;
+  border-radius: 30px;
+  height: 6px;
+  width: 6px;
+  border: 2px solid #888;
+  
+  &:after {
+    content: "";
+    height: 2px;
+    width: 6px;
+    background: #888;
+    position:absolute;
+    top:7px;
+    left:5px;
+    -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+  }
+  
+}
 /* SIDENAV CSS */
     .sidenav {
     height: 100%;
@@ -254,7 +290,7 @@ input:focus {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 45px;
     margin-left: 50px;
     color:white;
 }
@@ -262,6 +298,13 @@ input:focus {
             padding-left:5px;
             text-align:left;
             font-size:20px;
+        }
+        
+        .logout-link {
+            font-size:20px !important;
+            color:white !important;
+            padding-left:5% !important;
+            text-decoration: underline !important;
         }
         #menu-item-107 {
             background: none;
@@ -303,6 +346,326 @@ input:focus {
             text-decoration: underline;
 }
 /* SIDENAV CSS END */
+        
+/* STORE SEARCH FORM START */
+        
+        .search-form-all {
+            width:80%;
+            color:white;
+            position:relative;
+            text-align:center;
+            margin:auto;
+            border-bottom:2px solid white;
+            
+        }
+        .search-icon {
+            width:84px;
+            height:44px;
+            position: relative;
+            float:left;
+            top:40px;
+            right:30px;
+            transform: scale(0.5);
+                
+        }
+
+        .store-search {
+            width:80%;
+            height:50px;
+        }
+        
+        .search-form-all input {
+            width:100%;
+            height:40px;
+            background:transparent;
+            border:0;
+            box-shadow: 0;
+            color:white;
+            font-size:20px;
+            margin-left:35px;
+            
+        }
+        
+       .store_search input placeholder {
+            color:white !important;
+        }
+        
+        .search-form-all input placeholder {
+            color:white !important;
+        }
+/* MAP NAVIGATION START */
+        
+        #wpsl-search-wrap .wpsl-search .wpsl-clearfix  {
+            background-color:g#92C83E;
+            opacity: 0.9;
+        }
+        .wpsl-search{
+            background-color:#92C83E;
+            opacity: 0.9;
+        }
+        .wpsl-clearfix  {
+            background-color:#92C83E;
+            opacity: 0.9;
+        }
+        #wpsl-search-wrap .wpsl-select-wrap {
+            display: none;
+        }
+        
+        #wpsl-search-wrap .wpsl-input {
+            width:100%;
+        }
+        
+        #wpsl-search-wrap .wpsl-input label {
+            color:white;
+            width:150px;
+            font-size:20px;
+        }
+        #wpsl-search-input {
+            width:100%;
+        }
+        #wpsl-result-list {
+        color:white;
+        font-size:20px;
+        background-color:92C83E;
+        }
+        #wpsl-result-list a {
+        color:white;
+        font-size:20px;
+        font-style: italic;
+        }
+        .wpsl-search-btn-wrap {
+            width: 100%;
+            color:92C83E;
+        }
+        
+        .wpsl-search-btn-wrap #wpsl-search-btn {
+            color:92C83E;
+            font-size:20px;
+            width:100%;
+        }
+        #wpsl-stores ul {
+            background-color:92C83E;
+        }
+/* MAP NAVIGATION END */
+        
+/* SEARCH FORM CSS */
+        
+        .storesearch-form {
+            width:100%;
+            margin: auto;
+            position:relative;
+            
+        }
+        .storesearch-form-icon {
+            position:absolute;
+            width:50px;
+            left:-10px;
+        }
+        .storesearch-form-input {
+            width:100%;
+            height:30px;
+            font-size:25px;
+            outline: none;
+            border:0;
+            background:none;
+            border-bottom:1px solid white;
+            padding-left:35px;
+            color:white;
+        }
+        
+        .storesearch-form-input focus {
+            outline: none;
+        }
+        
+        .storesearch-form-submit {
+            margin-top:20px;
+            width:100%;
+            font-size:40px;
+            background-color:#D1610C;
+            border:0;
+            color:white;
+            padding:1%;
+            opacity:0.9;
+            
+        }
+/* CREATE A REPORT PAGE CSS */
+        
+        .searchresultbox {
+            width:100%;
+            height:50px;
+            background-color:#92C83E;
+            opacity:0.9;
+            margin-top:15px;
+            
+        }
+        
+        .searchresultbox a {
+            height:100%;
+            width:100%;
+            text-align: center;
+            color:white;
+            font-size:30px;
+            vertical-align: middle;
+            display: block;
+        }
+        .check-store-settings {
+            background-color:#92C83E;
+            overflow:hidden;
+        }
+        .check-settings {
+            float:left;
+            box-sizing: border-box;
+            width:33%;
+            color:white;
+            opacity: 0.9;
+            font-size:15px;
+        }
+        
+        .check-settings-height {
+            float:left;
+            box-sizing:border-box;
+            width:100%;
+            color:white;
+            opacity: 0.9;
+            margin: auto;
+            font-size:15px;
+        }
+        
+        .height-box {
+            width:33%;
+            float:left;
+            box-sizing: border-box;
+        }
+/* REPORTS PAGE CSS */
+        
+        .buttonholder {
+            overflow: hidden;
+        }
+        
+        .boxx {
+            float:left;
+            box-sizing: border-box;
+            width:33.33%;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            padding:2%;
+        }
+        
+        .reports_button {
+            width: 100%;
+            height:100%;
+            box-sizing: border-box;
+            background-color:#92C83E;
+            font-size: 4vw; /* vw (% of the viewport width)*/
+            color:white;
+            opacity:0.9;
+            float:left;
+            margin: auto;
+            display: inline;
+        }
+        
+        .reports_button:nth-child(1) {
+        }
+        
+        .report_p {
+            color:white;
+            width:100%;
+            margin-top:20px;
+            background-color:#92C83E;
+            font-size:30px;
+            padding-top:10px;
+            padding-bottom:10px;
+            opacity:0.9;
+            float:left;
+            
+        }
+        
+        
+        .report-item {
+            width:100%;
+            height:50px;
+            opacity:0.9;
+            font-size:30px;
+            background-color:#92C83E;
+            color:white;
+            margin-top:25px;
+            text-align: center;
+            align-content: center;
+            margin-left: auto;
+            margin-right:auto;
+            vertical-align: middle;
+        }
+        
+        
+/* CALCULATING POINTS */
+        
+        .hidden_points {
+            display: none;
+        }
+/* PRODUCT AND STORE SETTINGS CSS */
+        
+        .change_settings {  /* form where store or product info can be changed */
+            
+        }
+        
+        .change-settings-single-result {
+            width:100%;
+            height:50px;
+            background-color:#92C83E;
+            opacity:0.9;
+            float:left;
+            margin-top:2%;
+        }
+        .change-settings-single-result h2 {
+            color:white;
+            display:block;
+            float:left;
+            width:25%;
+            box-sizing: border-box;
+            height:100%;
+            text-align: left;
+            padding-left:15px;
+        }
+        .change-settings-single-result input {
+            float:left;
+            display:block;
+            width:75%;
+            box-sizing: border-box;
+            height:100%;
+            font-size:25px;
+            padding-left:5px;
+            background-color:none;
+            
+        }
+        .accept-changes {
+            width:100%;
+            height:60px;
+            background-color:#D1610C;
+            margin-top:30px;
+            border:0;
+            opacity:0.9;
+            font-size:40px;
+            color:white;
+            
+        }
+        .product-store-name {
+            font-size:40px;
+            color:white;
+        }
+        .product-store-name:first-letter { 
+            text-transform: uppercase; /* makes first letter always uppercase */
+        }
+        
+        .extrainfo {
+            font-size:40px;
+            color:white;
+            margin-top:30px;
+            margin-bottom:0;
+        }
+        
 /* NAVIGATION CSS */
         .navbar-right {
             display:none;
@@ -336,6 +699,7 @@ input:focus {
         .navbar-left {
             padding:0;
         }
+        
     .menu-item {
         width:100%;
         height:50px;
@@ -350,12 +714,35 @@ input:focus {
         margin-right:auto;
         padding:1%;
     }
+        
+    .menu-item-orange {
+        width:100%;
+        opacity:0.9;
+        font-size:30px;
+        background-color:#D1610C;
+        color:white;
+        margin-top:25px;
+        text-align: center;
+        align-content: center;
+        margin-left: auto;
+        margin-right:auto;
+        padding:1%;
+    }
+    .menu-item-orange a {
+        height:100%;
+        color:white;
+        text-align: center;
+        align-content: center;
+        display:block;
+        font-size:40px;
+        
+    }
+        
     .menu-item a {
         color:white;
         text-align: center;
         align-content: center;
-        margin-top: 50%;
-        margin-bottom: 50%;
+        display:block;
         
     }
         
@@ -410,7 +797,57 @@ input:focus {
             background-color:#92C83E;
         }
 /* INSTRUCTION CSS END */
+/* SETTINGS CSS */
         
+        ul#menu-settings-menu.menu {
+            padding-left: 0;
+        }
+/* SETTINGS END */
+        
+/* EDIT PROFILE CSS */
+        .cleanlogin-container {
+            border:none;
+            box-shadow: none;
+            background-color:#92C83E;
+            -webkit box-shadow: none;
+        }
+        
+        .cleanlogin-form {
+            color:white;
+        }
+        
+        .cleanlogin-form-description {
+            display:none;
+        }
+        
+        .cleanlogin-field {
+            color:white;
+            background-color:none;
+            border:0;
+            background: transparent !important;
+            width:100%;
+        }
+        .cleanlogin-field input {
+            color:white;
+            background-color:none;
+            border-top:0;
+            border-right:0;
+            border-left:0;
+            border-bottom: 2px solid white;
+            background: transparent !important;
+            font-size:20px;
+            width:100%;
+            float:left;
+        }
+        .cleanlogin-full-width form .cleanlogin-field {
+            width:100%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .cleanlogin-full-width form fieldset {
+            margin-left:0;
+        }
+/*END */
 .login-info {
     max-width:100%;
     margin:auto;
@@ -502,6 +939,12 @@ input:focus {
             margin-top:10%;
         }
 }
+        
+        @media only screen and (min-width:365px) {
+            .logout-link {
+            font-size:30px !important;
+        }
+        }
     @media only screen and (min-width:768px){
        /* default iPad screens */
         #login-info {
@@ -525,8 +968,6 @@ input:focus {
         }
         .menu-item a {
             margin: auto;
-            margin-top: 50%;
-            margin-bottom: 50%;
         }
         .logo {
             max-width:259px;
@@ -574,6 +1015,20 @@ input:focus {
             margin-left: 50px;
             color:white;
 }
+        
+        /* MAP PAGE NAV */
+        #wpsl-search-wrap .wpsl-input {
+            width:85%;
+        }
+        
+        .logout-link {
+            font-size:35px !important;
+        }
+        
+        .check-settings-height, .check-settings {
+            font-size:35px;
+            
+        }
     }
     /* different techniques for iPad screening */
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {

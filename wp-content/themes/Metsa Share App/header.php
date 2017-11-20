@@ -1,4 +1,5 @@
 <!doctype html>
+<?php session_start(); ?>
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
@@ -7,10 +8,16 @@
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
-
+        <!-- FOR SEARCH STUFF -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" /> 
+        <!-- FOR SEARCH STUFF -->
+        
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" type="text/javascript"></script>
 
 		<?php wp_head(); ?>
 		<script>
@@ -20,6 +27,7 @@
             assets: '<?php echo get_template_directory_uri(); ?>',
             tests: {}
         });
+        Barba.Pjax.start();    
         </script>
         <script>
 function openNav() {
@@ -32,6 +40,8 @@ function closeNav() {
 </script>
 	</head>
 	<body <?php body_class(); ?>>
+        <div id="barba-wrapper">
+  <div class="barba-container">
     <div class="static-background">
 		<!-- wrapper -->
 		<div class="wrapper">
@@ -54,11 +64,9 @@ function closeNav() {
                     <!-- SIDENAV -->
                     <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <?php 
-                        wp_nav_menu( array(
-                            'menu' => 'Burger menu'
-                            ) ); 
-                    ?>
+                        <a class="logout-link" href="<?php echo get_page_link(101); ?>">Map</a>
+                        <a class="logout-link" href="http://www.metsagroup.com/fi/Pages/default.aspx">Metsä Group</a>
+                        <a class="logout-link" href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a>
                     </div>
                     <!-- SIDENAV END -->
 
