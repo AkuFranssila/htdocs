@@ -5,7 +5,7 @@
 
     <div class="app-container">
         <?php 
-                wp_nav_menu( array(
+                wp_nav_menu( array( //prints the wordpress menu called "Settings Menu" which has the product settings, store settings, profile settings
                 'menu' => 'Settings menu'
                 ) ); 
             ?>

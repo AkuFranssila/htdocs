@@ -1,11 +1,11 @@
 <?php /* Template Name: Product settings  */ ?>
 
 <?php get_header(); ?>
-
+<div class="app-container">
 <form class="storesearch-form" method="POST">
     <img class="storesearch-form-icon" src="<?php echo get_template_directory_uri(); ?>/img/magnifying%20glass%20white.png">
     <input class="storesearch-form-input" type="text" name="productname">
-    <input class="storesearch-form-submit" type="submit" name="submit" value="Search">
+    <input id="delay" class="storesearch-form-submit" type="submit" name="submit" value="Search">
 </form>
 <?php //search form that gets user input and displays the results on the same page as the form
 global $wpdb; //connect to wordpress database
@@ -20,10 +20,13 @@ global $wpdb; //connect to wordpress database
    }
 ?>
 
-
         <div class="previous-page">
             <a href="www.mypage.com" onclick="window.history.go(-1); return false;"><img class="back-arrow" src="<?php echo get_template_directory_uri(); ?>/img/back-arrow.png"></a>
             
+        </div>
+
+        <div class="fixed-button"> <!-- New product button that is fixed to the bottom of the page -->
+            <a href="http://127.0.0.1/wordpress/product-settings/new-product/"> New product </a>
         </div>
     </div>
 	<main role="main">

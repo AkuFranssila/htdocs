@@ -2,7 +2,7 @@
 	Theme Name: Metsa Share - Based on html5 blank template
 	Theme URI: http://html5blank.com
 	Description: HTML5 Blank WordPress Theme
-	Version: 1.4.3
+	Version: 1.4.4
 	Author: Todd Motto (@toddmotto)
 	Author URI: http://toddmotto.com
 	Tags: Blank, HTML5, CSS3
@@ -45,9 +45,13 @@ body {
     
 }
 
+* {
+    font-family: 'Archivo Black', sans-serif;
+}
+
 
 .static-background {
-    background-image:url('img/forest.jpg');
+    /* background-image:url('img/forest.jpg'); */
     background-repeat: no-repeat;
     max-width:100%;
     height:100vh;
@@ -145,8 +149,21 @@ input:focus {
     IMAGES
 \*------------------------------------*/
 
+.shelf-box {
+    border:3px solid white;
+    height:100px;
+    width:100px;
+    color:white;
+    font-size:25px;
+}
 
+shelf-box-table {
+    margin:0 auto !important;
+}
 
+table {
+    margin:0 auto;
+}
 /*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
@@ -463,7 +480,7 @@ input:focus {
         }
         .storesearch-form-input {
             width:100%;
-            height:30px;
+            height:40px;
             font-size:25px;
             outline: none;
             border:0;
@@ -480,7 +497,7 @@ input:focus {
         .storesearch-form-submit {
             margin-top:20px;
             width:100%;
-            font-size:40px;
+            font-size:30px;
             background-color:#D1610C;
             border:0;
             color:white;
@@ -504,7 +521,7 @@ input:focus {
             width:100%;
             text-align: center;
             color:white;
-            font-size:30px;
+            font-size:18px;
             vertical-align: middle;
             display: block;
         }
@@ -528,13 +545,41 @@ input:focus {
             color:white;
             opacity: 0.9;
             margin: auto;
-            font-size:15px;
+            font-size:25px;
+            height:100px;
+            padding-top:30px;
         }
         
         .height-box {
             width:33%;
             float:left;
             box-sizing: border-box;
+        }
+        
+        
+/* FIXED BUTTON AT BOTTOM OF PAGE */
+        
+        .fixed-button {
+            position:fixed;
+            width:100%;
+            height:80px;
+            font-size:40px;
+            bottom:0px;
+            background-color:#D1610C;
+            text-align:center;
+            color:white;
+            left:0px;
+            right:0px;
+            margin-top:10px;
+            
+        }
+        
+        .fixed-button a {
+            color:white;
+            width:100%;
+            height:100%;
+            display: block;
+            padding-top:10px;
         }
 /* REPORTS PAGE CSS */
         
@@ -552,14 +597,16 @@ input:focus {
             margin-right: auto;
             display: inline-block;
             padding:2%;
+            
         }
         
+
         .reports_button {
             width: 100%;
             height:100%;
             box-sizing: border-box;
             background-color:#92C83E;
-            font-size: 4vw; /* vw (% of the viewport width)*/
+            font-size: 1.1em; /* vw (% of the viewport width)*/
             color:white;
             opacity:0.9;
             float:left;
@@ -575,7 +622,7 @@ input:focus {
             width:100%;
             margin-top:20px;
             background-color:#92C83E;
-            font-size:30px;
+            font-size:18px;
             padding-top:10px;
             padding-bottom:10px;
             opacity:0.9;
@@ -586,9 +633,9 @@ input:focus {
         
         .report-item {
             width:100%;
-            height:50px;
+            height:80px !important;
             opacity:0.9;
-            font-size:30px;
+            font-size:45px !important;
             background-color:#92C83E;
             color:white;
             margin-top:25px;
@@ -597,13 +644,209 @@ input:focus {
             margin-left: auto;
             margin-right:auto;
             vertical-align: middle;
+            border:0;
         }
         
+        .report-item a {
+            color:white;
+        }
+        
+        .report-list-item {
+            width:100%;
+            height:80px !important;
+            opacity:0.9;
+            font-size:15px !important;
+            background-color:#92C83E;
+            color:white;
+            margin-top:25px;
+            text-align: center;
+            align-content: center;
+            margin-left: auto;
+            margin-right:auto;
+            vertical-align: middle;
+            border:0;
+        }
+        
+        .report-list-item a {
+            color:white;
+            
+        }
+        
+        .report-list-item a:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
+        .report-list-item-a1 {
+            width:80%;
+            display: block;
+            box-sizing: border-box;
+            float:left;
+            height:100%;
+            padding-top:20px;
+            border-right:2px solid white;
+        }
+        
+        .report-list-item-a2 {
+            width:20%;
+            display: block;
+            box-sizing: border-box;
+            float:left;
+            height:100%;
+            line-height:80px;
+        }
+        
+        
+        
+        .horizontal_checkbox {
+            overflow: auto;
+            padding:0;
+            box-sizing: border-box;
+            white-space: nowrap;
+            border:0;
+            width:100%;
+            opacity: 0.9;
+            background-color:#92C83E;
+            
+        }
+        
+        .horizontal_checkbox select {
+            padding:0;
+            border-radius:8px 8px 8px 8px;
+            border-right:1px solid #92C83E;
+            white-space: normal;
+            height:75px;
+            box-sizing: border-box;
+            white-space: nowrap;
+            text-align: center;
+            margin: auto;
+            margin-top:10px;
+            margin-bottom:10px;
+            width:90%;
+            overflow: auto;
+        }
+        
+        .horizontal_checkbox ul {
+            padding:0;
+            border-radius:8px 8px 8px 8px;
+            border-right:1px solid #92C83E;
+            white-space: normal;
+            height:75px;
+            box-sizing: border-box;
+            white-space: nowrap;
+            text-align: center;
+            margin: auto;
+            margin-top:10px;
+            margin-bottom:10px;
+            width:90%;
+            overflow: auto;
+        }
+        .horizontal_checkbox::-webkit-scrollbar {
+            width:0 !important;
+        }
+        .hidescroll::-webkit-scrollbar {
+            width:0 !important;
+        }
+        
+        .horizontal_checkbox select option {
+            height:60px;
+            width:70px;
+            margin-top:7px;
+            /* border-radius:8px 0px 0px 8px; */
+            border-right:1px solid #92C83E;
+            border-right-width: 90%;
+            background-color: white;
+            margin-left:1px;
+            display: inline-block;
+            box-sizing: border-box;
+            font-size:30px;
+            text-align: center;
+            padding-top:12px;
+            color:#92C83E;
+        }
+        
+        .horizontal_checkbox ul li {
+            height:60px;
+            width:60px;
+            margin-top:7px;
+            /* border-radius:8px 0px 0px 8px; */
+            border-right:1px solid #92C83E;
+            border-right-width: 90%;
+            background-color: white;
+            margin-left:1px;
+            display: inline-block;
+            box-sizing: border-box;
+            font-size:30px;
+            text-align: center;
+            padding-top:12px;
+            color:#92C83E;
+        }
+        
+        .selection_title {
+            font-size:15px;
+            color:white;
+        }
         
 /* CALCULATING POINTS */
         
         .hidden_points {
             display: none;
+            width:100vh;
+            height:100vh;
+            background-color: aqua;
+        }
+        
+        .showmeafterclick {
+            width:100%;
+            opacity:0.9;
+            font-size:30px;
+            background-color:#D1610C;
+            color:white;
+            margin-top:25px;
+            text-align: center;
+            align-content: center;
+            margin-left: auto;
+            margin-right:auto;
+            padding:1%;
+        }
+        
+        .inputpoints {
+            color:white;
+        }
+        
+        .inputpoints input {
+            width:100%;
+            height:30px;
+            font-size: 25px;
+        }
+        
+        .empty_checkbox {
+            width:100%;
+            height:60px !important;
+            
+        }
+        .showpoints {
+            width:100%;
+            height:50px;
+            opacity:0.9;
+            font-size:10px;
+            background-color:#92C83E;
+            color:white;
+            margin-top:25px;
+            text-align: center;
+            align-content: center;
+            margin-left: auto;
+            margin-right:auto;
+            padding:1%;
+            border: 0;
+            border-style: none;
+            white-space: normal;
+        }
+        
+        .realogram-box {
+            width:100%;
+            overflow:auto;
+            margin-top:20px;
+            margin-bottom:20px;
         }
 /* PRODUCT AND STORE SETTINGS CSS */
         
@@ -623,19 +866,32 @@ input:focus {
             color:white;
             display:block;
             float:left;
-            width:25%;
+            width:35%;
             box-sizing: border-box;
             height:100%;
             text-align: left;
-            padding-left:15px;
+            padding-left:5px;
+            white-space: normal;
+            font-size:13px;
         }
         .change-settings-single-result input {
             float:left;
             display:block;
-            width:75%;
+            width:65%;
             box-sizing: border-box;
             height:100%;
-            font-size:25px;
+            font-size:15px;
+            padding-left:5px;
+            background-color:none;
+            
+        }
+        .change-settings-single-result select {
+            float:left;
+            display:block;
+            width:65%;
+            box-sizing: border-box;
+            height:100%;
+            font-size:15px;
             padding-left:5px;
             background-color:none;
             
@@ -651,8 +907,14 @@ input:focus {
             color:white;
             
         }
+        
+        .accept-changes a {
+            width:100%;
+            height:100%;
+            display: block;
+        }
         .product-store-name {
-            font-size:40px;
+            font-size:20px;
             color:white;
         }
         .product-store-name:first-letter { 
@@ -660,7 +922,7 @@ input:focus {
         }
         
         .extrainfo {
-            font-size:40px;
+            font-size:25px;
             color:white;
             margin-top:30px;
             margin-bottom:0;
@@ -727,14 +989,21 @@ input:focus {
         margin-left: auto;
         margin-right:auto;
         padding:1%;
+        border:0;
+        font-size:20px;
     }
+        
+    .menu-item-orange:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
     .menu-item-orange a {
         height:100%;
         color:white;
         text-align: center;
         align-content: center;
         display:block;
-        font-size:40px;
+        font-size:20px;
         
     }
         
@@ -747,12 +1016,26 @@ input:focus {
     }
         
         .previous-page {
+            width:100%;
+            margin: 0 auto;
+            margin-top:15px;
+            margin-bottom:90px;
+        }
+        .previous-page:hover {
+            
+        }
+        
+        .previous-page a {
             height:50px;
             width:50px;
             border-radius: 50%;
             background-color:#92C83E;
-            margin: auto;
-            margin-top:15px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .previous-page a:hover{
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         }
         
         .back-arrow {
@@ -763,9 +1046,112 @@ input:focus {
             margin-top:21%;
             padding-right:5px;
         }
+        
 /* NAVIGATION CSS ENDS*/
+
         
+/* CANVASJS CSS */
         
+        /*
+        canvas.canvasjs-chart-canvas {
+            position: relative !important;
+        }
+        
+        canvasjs-chart-canvas {
+            position: relative !important;
+        }
+        
+        canvas {
+            position: relative !important;
+        } */
+        
+        .reportcontainer {
+            width:100%;
+            height:400px;
+        }
+        
+        .fairshare-container {
+            background-color:#92C83E;
+            margin-top:15px;
+            overflow: auto;
+            margin-bottom:15px;
+            text-align: center;
+            opacity: 0.9;
+        }
+        .fairshare-container h2 {
+            color:white;
+            font-size:20px;
+            float:left;
+            width:100%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+        }
+        .fairshare-container h1 {
+            color:white;
+            font-size:45px;
+            float:left;
+            width:100%;
+            box-sizing: border-box;
+        }
+        .fairshare-container p {
+            color:white;
+            font-size:25px;
+            float:left;
+            width:33.33%;
+            box-sizing: border-box;
+            border-bottom: 1px solid white;
+        }
+        
+        .fairshare-container h3 {
+            color:white;
+            font-size:20px;
+            float:left;
+            width:33.33%;
+            box-sizing: border-box;
+        }
+        .productlist {
+            color:white;
+            font-size:25px;
+            width:100%;
+            box-sizing: border-box;
+            margin-top:15px;
+            margin-bottom:0;
+            border:1px solid grey;
+            color:white;
+            background-color:#92C83E;
+            opacity: 0.9;
+            border-radius:4px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            
+        }
+        
+        .productlist:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
+        .product-list-report {
+            display: none;
+            color:white;
+            background-color:#92C83E;
+            opacity: 0.9;
+            font-size:20px;
+        }
+        .product-list-report h2 {
+            width:48%;
+            display: inline-block;
+            border-bottom:1px solid white;
+            margin-top:0;
+        }
+        .product-list-report h2:nth-child(1) {
+            margin-top:0;
+            padding-top:5px;
+        }
+        
+        .product-list-report h3 {
+            width:100%;
+            display: inline-block;
+            font-size:15px;
+        }
 /* INSTRUCTION CSS START */
         .su-spoiler-title {
             background-color:#92C83E !important;
@@ -925,6 +1311,13 @@ input:focus {
             max-width:80px;
             max-height:50px;
         }
+        
+        .placeholder_input {
+            width:90% !important;
+            height:70px !important;
+            font-size:35px !important;
+            padding-left:5px !important;
+        }
 @media only screen and (min-width:360px){
         /* styles for browsers larger than 360px; */
     .login-info {
@@ -942,10 +1335,10 @@ input:focus {
         
         @media only screen and (min-width:365px) {
             .logout-link {
-            font-size:30px !important;
+            font-size:20px !important;
         }
         }
-    @media only screen and (min-width:768px){
+@media only screen and (min-width:768px){ /* IPAD WIDTH /////////////////////////////////////////////////////////////////////////////////////// */
        /* default iPad screens */
         #login-info {
             margin-top:50%;
@@ -966,6 +1359,11 @@ input:focus {
             align-content: center;
             padding:3%;
         }
+        
+        .menu-item:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
         .menu-item a {
             margin: auto;
         }
@@ -1029,7 +1427,90 @@ input:focus {
             font-size:35px;
             
         }
+    
+        .previous-page a {
+            height:80px;
+            width:80px;
+        }
+    
+        .storesearch-form-submit {
+            font-size:40px;
+        }
+        .searchresultbox a {
+        font-size:25px;
+        }
+    .product-store-name {
+        font-size:40px;
     }
+    .menu-item-orange a {
+        font-size:40px;
+    }
+    
+    .menu-item-orange {
+        font-size:40px;
+    }
+    .shelf-box {
+        font-size:45px;
+    }
+    .productlist {
+        font-size:35px;
+    }
+    .showpoints {
+        font-size:25px;
+    }
+    .product-list-report h3 {
+        font-size:25px;
+    }
+    
+    .fairshare-container h2 {
+        font-size:35px;
+    }
+    .report_p {
+        font-size:30px;
+    }
+    .report-list-item {
+        font-size:25px !important;
+    }
+    
+    .report-list-item-a2 {
+    }
+    
+    .change-settings-single-result h2 {
+            width:25%;
+            padding-left:15px;
+            font-size:17px;
+        }
+    
+    .change-settings-single-result input {
+        width:75%;
+        
+    }
+    
+    .change-settings-single-result select {
+        width:75%;
+        font-size:25px;
+    }
+    .change-settings-single-result input {
+        font-size:25px;
+    }
+    
+    .extrainfo {
+        font-size:40px;
+    }
+    .selection_title {
+        font-size:25px;
+    }
+    
+    .reports_button {
+        font-size:2em;
+    }
+    
+    .fairshare-container h3 {
+        font-size:35px;
+    }
+    }
+        
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
     /* different techniques for iPad screening */
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
       /* For portrait layouts only */
@@ -1078,22 +1559,32 @@ input:focus {
     .login-info {
         margin-top:40%;
     }
+
+        }
             
             @media only screen and (min-height:1080px){
         /* styles for browsers larger than 360px; */
     .login-info {
         margin-top:15%;
     }
+                .reports_button {
+                    font-size:35px;
+                }
+    }
                 @media only screen and (min-height:1080px) and (max-width:1024px){
         /* styles for browsers larger than 360px; */
     .login-info {
         margin-top:45%;
     }
-    @media only screen and (min-width:1440px){
+    @media only screen and (min-width:1365px){
         /* styles for browsers larger than 1440px; */
         .login-info {
             margin-top:15%;
         }
+        
+        .reports_button {
+                    font-size:35px;
+                }
         
     }
     @media only screen and (min-width:2000px){

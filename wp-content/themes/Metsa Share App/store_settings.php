@@ -26,6 +26,10 @@ global $wpdb; //connect to wordpress database
             <a href="www.mypage.com" onclick="window.history.go(-1); return false;"><img class="back-arrow" src="<?php echo get_template_directory_uri(); ?>/img/back-arrow.png"></a>
             
         </div>
+        
+        <div class="fixed-button">
+            <a href="http://127.0.0.1/wordpress/store-settings/new-store/"> New store </a>
+        </div>
     </div>
 	<main role="main">
 		
