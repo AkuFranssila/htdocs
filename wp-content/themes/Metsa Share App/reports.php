@@ -37,9 +37,9 @@ function runMyFunction2() {
 function runMyFunction3() {
     global $wpdb;
     $name = $_POST['storename']; //store user input to $name
-    $mainchains = $wpdb->get_results("SELECT * FROM store WHERE name_store LIKE '%".$name."%'");
+    $mainchains = $wpdb->get_results("SELECT * FROM store WHERE name_store LIKE '%".$name."%'"); //store search with the user input
     foreach ($mainchains as $names) {
-        echo '<a class="report_p" href="http://127.0.0.1/wordpress/reports/list-of-reports/?val='.$names->id_store.'">'. $names->name_store .'</a>';
+        echo '<a class="report_p" href="http://127.0.0.1/wordpress/reports/list-of-reports/?val='.$names->id_store.'">'. $names->name_store .'</a>'; //echoes results from database and on click gives the store id as a value to be transferred
     }
     
   }

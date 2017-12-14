@@ -62,7 +62,7 @@
            if ($searchresult->ean_product == $name) {
                ?>
                 <script>
-                    $("#showpoints").trigger("click");
+                    $("#showpoints").trigger("click"); //if the ean matches the product ean that is echoes the jquery will then run the click function as if the user had done it. THis will remove 1 click from the progress. When typing just name this wont happen
                 </script>
             <?php
            }
@@ -122,9 +122,9 @@
         if ($id_product == 666 or $id_product == 101) { //CHECKS IF THE PRODUCT SELECTED IS A PLACEHOLDER PRODUCT
                 echo '<div class="horizontal_checkbox">';
                 echo '<h1 class="selection_title">Placeholder name</h1>';
-                echo '<input class="placeholder_input" type="text" name="name_placeholder" value=""></input>';
+                echo '<input class="placeholder_input" type="text" name="name_placeholder" value=""></input>'; //user input to be used as the product name
                 echo '<h1 class="selection_title">Placeholder EAN</h1>';
-                echo '<input class="placeholder_input" type="text" name="ean_placeholder" value=""></input>';
+                echo '<input class="placeholder_input" type="text" name="ean_placeholder" value=""></input>'; //user input to be used as the EAN
                 echo '</div>';
             }         
             
@@ -140,13 +140,13 @@
                        echo '<h1 class="selection_title">Shelf 1</h1>';
                         echo '<select class="hidescroll" name="shelf1_points" size="8">';
                         //echo '<option value="0" name="0">0</selection>';
-                        $shelf1_points = 0;
+                        $shelf1_points = 0; //to echo the selected
                         
                         while ($shelf1_points < 301) {
-                            if ($shelf1_points == 0) {
+                            if ($shelf1_points == 0) { //if this is 0 then echoes the selected so that we have atleast some input always
                             echo '<option value="'.$shelf1_points.'" name="horizontal_selection" autofocus selected>'.$shelf1_points.'</selection>';
                             } else {
-                                echo '<option value="'.$shelf1_points.'" name="horizontal_selection">'.$shelf1_points.'</selection>';
+                                echo '<option value="'.$shelf1_points.'" name="horizontal_selection">'.$shelf1_points.'</selection>'; //echoes rest of the numbers up to 300
                             }
                             $shelf1_points++;
                         }
@@ -1394,7 +1394,7 @@
                 }
                 
                 if ($id_category == 3) { //CALCULATING THE FACES FOR PRODUCT AND THEN HOW MANY PRODUCTS SHOULD BE IN THE SHELF 
-                    $productcount_points1 = floor($hank_depth / $depth) * $shelf1_points;
+                    $productcount_points1 = floor($hank_depth / $depth) * $shelf1_points; //using the floor as we can't have half products
                     $productcount_points2 = floor($hank_depth / $depth) * $shelf2_points;
                     $productcount_points3 = floor($hank_depth / $depth) * $shelf3_points;
                     $productcount_points4 = floor($hank_depth / $depth) * $shelf4_points;
@@ -1514,12 +1514,16 @@
                         echo '<br>';
                         echo '</div>';
                     
-                } elseif ($id_product == 101) {
+                } elseif ($id_product == 101) { //if the product is hankies 
+                    
+                //the placeholder producer, label, category and subcat ids
                 $id_producer = 9;
                  $id_label = 13;
                  $id_category = 5;
                  $id_subcat = 11;
                      
+                //will then insert the     
+                    
                 $wpdb->insert( 
 	           'product', 
                    array( 
@@ -1527,7 +1531,7 @@
                         'id_label' => $id_label,
                         'id_category' => $id_category,
                         'id_subcat' => $id_subcat,
-                        'ean_product' => 1234567890,
+                        'ean_product' => $ean_placeholder,
                         'name_product' => $name_placeholder,
                         'width_product' => 150,
                         'height_product' => 150,
@@ -1595,8 +1599,8 @@
             ); 
                     
                     $wpdb->delete( 'points', array( 'id_points' => $id_points ), array( '%d' ) ); 
-                        echo '<div class="fairshare-container">';   
-                        echo '<h1 class="product-store-name">'. $name_placeholder . ' added </h1>';
+                        echo '<div class="fairshare-container">';   //when creating a placeholder product echo this
+                        echo '<h1 class="product-store-name">'. $name_placeholder . ' added </h1>'; //echoes the user input that was made for placeholder product
                         echo '<br>';
                         echo '</div>';
                 } else {
@@ -1610,7 +1614,7 @@
                         $counter++;
                     }
                 }
-                
+                //checking if the product is out of stock. Adds all points together and if it comes as 0 
                 $check_if_submit_empty = $shelf1_points + $shelf2_points + $shelf3_points + $shelf4_points + $shelf5_points + $pallet_points + $empty_points + $productcount_points + $pallet_productcount_points;
                 
                 if ($counter == 0) {
@@ -1661,9 +1665,9 @@
             }  elseif ($check_if_submit_empty == 0) {
                     $id_for_points = $wpdb->get_results("SELECT id_points FROM points WHERE id_report =".$report_id." AND id_product = ".$id_product."");
                     foreach ($id_for_points as $po_id) {
-                        $id_points = $po_id->id_points;
+                        $id_points = $po_id->id_points; //if there are no inputs in the database get the id points for the product in the selected report
                     }  
-                    $wpdb->delete( 'points', array( 'id_points' => $id_points ), array( '%d' ) );
+                    $wpdb->delete( 'points', array( 'id_points' => $id_points ), array( '%d' ) ); //here we delete the product if all the input fields were 0
                 }
                 
                 elseif ($counter > 0) { //INSTEAD OF ADDING PRODUCT AGAIN TO POINTS IT UPDATES THE ROW WHERE THE PRODUCT IS
@@ -1671,7 +1675,7 @@
                 foreach ($id_for_points as $po_id) {
                     $id_points = $po_id->id_points;
                 }    
-                    
+                //if the counter checking if the product already exists in the database it will run the update query and just update the existing row    
                 $wpdb->update( 
 	           'points', 
 	           array( 
@@ -1720,23 +1724,23 @@
 	           array( '%d' ) );   
 
                 }
-            if ($counter == 0) {
+            if ($counter == 0) { //this is done if the product is new
             echo '<div class="fairshare-container">';   
-            echo '<h1 class="product-store-name">'. $name_product . ' added </h1>';
+            echo '<h1 class="product-store-name">'. $name_product . ' added </h1>'; //after input displays the name
             echo '<br>';
-            echo '<h2 class="product-info"> Products in shelves: '.$finalpoints.'</h2>';
+            echo '<h2 class="product-info"> Products in shelves: '.$finalpoints.'</h2>'; //after input dispays the shelf product count
             echo '<br>';
-            echo '<h2 class="product-info"> Products in pallets: '.$pallet_points_count.'</h2>';
+            echo '<h2 class="product-info"> Products in pallets: '.$pallet_points_count.'</h2>'; //after input displays the pallet product count
             echo '<br>';
-            echo '<h2 class="product-info"> Total product count: '.$total_products.'</h2>';
+            echo '<h2 class="product-info"> Total product count: '.$total_products.'</h2>'; //after input adds together the $finalpoint and $pllet_points_count
             echo '<br>';
             echo '</div>';
-            } elseif ($check_if_submit_empty == 0) {
+            } elseif ($check_if_submit_empty == 0) { //this is done if the product is deleted
                  echo '<div class="fairshare-container">';   
-                echo '<h1 class="product-store-name">'. $name_product . ' deleted </h1>';
+                echo '<h1 class="product-store-name">'. $name_product . ' deleted </h1>'; //echoes this if the product was deleted. 
                 echo '<br>';
                 echo '</div>';
-            } elseif ($counter > 0) {
+            } elseif ($counter > 0) { //this is done if the product is updated
                 echo '<div class="fairshare-container">';   
                 echo '<h1 class="product-store-name">'. $name_product . ' updated </h1>';
                 echo '<br>';
@@ -1756,12 +1760,12 @@
         echo '<h4 id="OpenMe2" class="productlist"> Products in report</h4>'; //Box than will be opened on click with jquery toggle
         echo '<div id="ShowMe2" class="product-list-report">';
             $unique_products = 0;
-            $productlist = $wpdb->get_results("SELECT id_product FROM points WHERE id_report =".$report_id."");
+            $productlist = $wpdb->get_results("SELECT id_product FROM points WHERE id_report =".$report_id.""); //selecting product id from points
             foreach ($productlist as $products) {
-                $idname = $products->id_product;
-                $mainchains = $wpdb->get_results("SELECT * FROM product WHERE id_product =".$idname.""); //store sql query that selects all from store table and matches the store name with user input
+                $idname = $products->id_product; //saving product id to $idname
+                $mainchains = $wpdb->get_results("SELECT * FROM product WHERE id_product =".$idname.""); //store sql query that selects all from store table and matches the store name with user input, here we use the previously stored $idname 
                foreach ($mainchains as $searchresult) {
-                   echo '<form method="POST">';
+                   echo '<form method="POST">'; //we echo all values from the product and save them to hidden input
                    echo '<input type="hidden" name="id_store" value="'.$store_id.'"></input>';
                    echo '<input type="hidden" name="id_store_chain" value="'.$storechain_id.'"></input>';
                    echo '<input type="hidden" name="id_main_chain" value="'.$mainchain_id.'"></input>';
@@ -1780,7 +1784,7 @@
                }
                 $unique_products++;
             } 
-            echo '<br>';
+            echo '<br>'; //for each row in database will add one to $unique_products and then echoes the number of products in the code below
             echo '<h3> Number of products in report: ' . $unique_products . '</h3>';
         echo '</div>';
         
@@ -1792,9 +1796,9 @@
         ?>
         
         <script>
-        $( "#OpenMe2" ).click(function() {
+        $( "#OpenMe2" ).click(function() { //When clicking the div with id OpenMe2 it will open the div inside it called ShowMe2 with the toggle option and having a slow animation
         $( "#ShowMe2" ).slideToggle( "slow", function() {
-            // Animation complete.
+            // Animation complete. 
           });
         });
         </script>

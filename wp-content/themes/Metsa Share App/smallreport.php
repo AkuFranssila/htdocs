@@ -841,6 +841,7 @@
  <div class="reportcontainer">       
 <div id="chartContainer3"></div>
 </div>
+<!-- CONTAINERS FOR JAVASCRIPT STATS -->
 <?php
     // ECHOES FAIRSHARE STATISTICS FOR SHELVES
     echo '<h1 class="product-store-name">Shelf Fairshare statistics</h1>';
@@ -849,7 +850,7 @@
     echo '<p>HOTO</p>';
     echo '<p>TOTI</p>';
     echo '<p>HANK</p>';
-    echo '<h3>' . $mt_shelf_only_hoto . '%</h3>';
+    echo '<h3>' . $mt_shelf_only_hoto . '%</h3>'; //echoing mt fair shares for shelfs only
     echo '<h3>' . $mt_shelf_only_toti . '%</h3>';
     echo '<h3>' . $mt_shelf_only_hank . '%</h3>';
     echo '</div>';
@@ -950,52 +951,52 @@ foreach ($get_shelf_info as $shelf_info) {
             break;
         case 1:
             // SHELF 1 REALOGRAM
-            echo '<table style="width:'.$totalwidth_table.'px;height:'.$shelfheight1_table.'px;">'; // echoing the table start
+            echo '<table style="width:'.$totalwidth_table.'px;height:'.$shelfheight1_table.'px;">'; // echoing the table start echoes the total width of the table that is the module/segment count multiplied with width of one segment
             echo '<tr>'; //start of top shelf
             //echo '<td style="width:'.$totalwidth.'px;height:'.$shelfheight3.'px;"></td>'; //column of top shelf
-            $get_report = $wpdb->get_results("SELECT * FROM points WHERE id_report =".$id_report."");
+            $get_report = $wpdb->get_results("SELECT * FROM points WHERE id_report =".$id_report.""); //here we get all the inputs from points table where the id = id report
             //echo '<table>';
             //echo '<tr>';
             foreach ($get_report as $realogram) {
-                $category = $realogram->id_category;
-                $points_empty = $realogram->empty_points;
-                if ($category == 1 or $category == 2 or $category == 4) {
+                $category = $realogram->id_category; //saving the product id
+                $points_empty = $realogram->empty_points; //getting the empty points from db which are either 0 or 1
+                if ($category == 1 or $category == 2 or $category == 4) { //if the categories are hoto toti or hoto/hoti placeholder
                 $id_product = $realogram->id_product;
                     
                     
                 $shelf1_points = $realogram->shelf1_points; //CHANGE THIS DEPENDING ON SHELF
                     
                     
-                if ($shelf1_points > 0) {
+                if ($shelf1_points > 0) { //if there are products in shelf 1
                     $product_info = $wpdb->get_results("SELECT * FROM product WHERE id_product =".$id_product."");
                     foreach ($product_info as $info) {
-                        $name_p = $info->name_product;
-                        $width_p = $info->width_product;
-                        $height_p = $info->height_product;
+                        $name_p = $info->name_product; //product name
+                        $width_p = $info->width_product; //product width
+                        $height_p = $info->height_product; //product height
                        
                         //Calculate how many go on top of each other
                         if ($height_p > 0) {
-                        $height_count = floor($shelfheight1 / $height_p);
+                        $height_count = floor($shelfheight1 / $height_p); //counting how many products can go on top of each other
                         }
                         if ($height_count > 0) {
-                        $width_count = $shelf1_points / $height_count;
+                        $width_count = $shelf1_points / $height_count; //we get how many products go next to each other with dividing how many products can be on top of each other divided by faces
                         }
                         
-                        $total_height = $height_count * $height_p;
-                        $total_width_p = $width_count * $width_p;
+                        $total_height = $height_count * $height_p; //counting the total height what product takes 
+                        $total_width_p = $width_count * $width_p; //counting the total width what product takes
                         
                         if ($totalwidth > 0) {
-                        $width_percent = $total_width_p / $totalwidth * 100;
+                        $width_percent = $total_width_p / $totalwidth * 100; //getting the percent area what the product takes by dividing it with the total shelf area
                         }
                         $rounded_width = round($width_percent, 2);
                         $empty_space_shelf1 = $empty_space_td + $width_percent;
-                        if ($category == 1 and $points_empty == 0 ) { //HOTO GREEN
+                        if ($category == 1 and $points_empty == 0 ) { //HOTO GREEN if category is hoto and there are no empty products then echo this
                         echo '<td style="width:'.$width_percent.'%;height:'.$product_td_height.'px;border: 1px solid black;background-color:white;table-layout:fixed;background-color:#aee892;">'.$name_p.' -     Faces  '. $shelf1_points.' -  Space  ' . $rounded_width.'%</td>';
-                        } elseif ($category == 2 and $points_empty == 0) { //TOTI CYAN
+                        } elseif ($category == 2 and $points_empty == 0) { //TOTI CYAN no empty then this
                             echo '<td style="width:'.$width_percent.'%;height:'.$product_td_height.'px;border: 1px solid black;background-color:white;table-layout:fixed;background-color:#a2e9ef;">'.$name_p.' -     Faces ' . $shelf1_points.' -  Space  ' . $rounded_width.'%</td>';
-                        } elseif ($points_empty == 1) {
+                        } elseif ($points_empty == 1) { //if the empty points has value 1 then echo this in red color, these are out of stock products
                         echo '<td style="width:'.$width_percent.'%;height:'.$product_td_height.'px;border: 1px solid black;background-color:white;table-layout:fixed;background-color:#ff6442;"> Out of stock - '.$name_p.' -     Faces ' . $shelf1_points.' -  Space  ' . $rounded_width.'%</td>';    
-                        }else { //placeholders orange
+                        }else { //placeholders orange, if the placeholder is added you can see where they were and go change them
                             echo '<td style="width:'.$width_percent.'%;height:'.$product_td_height.'px;border: 1px solid black;background-color:white;table-layout:fixed;background-color:#ffab51;">'.$name_p.' -     Faces ' . $shelf1_points.' -  Space  ' . $rounded_width.'%</td>';
                         }
                         
@@ -1006,11 +1007,8 @@ foreach ($get_shelf_info as $shelf_info) {
             
             //empty space td
             
-            $empty_space_shelf1 = 100 - $empty_space_shelf1;
+            $empty_space_shelf1 = 100 - $empty_space_shelf1; //after all products from each shelf are done then echoes the remaining area as "empty"
             echo '<td style="width:'.$empty_space_shelf1.'%;height:100%;border: 1px solid black;background-color:white;table-layout:fixed;">Empty</td>';
-            //echo '</table>';
-            //echo '</tr>';
-            //echo '</td>'; //end of top shelf column
             echo '</tr>'; //end of top shelf
             echo '</table>';
             
@@ -1993,16 +1991,16 @@ echo '<div id="ShowMe2" class="product-list-report">';
         $unique_products++;
         $productlist2 = $wpdb->get_results("SELECT * FROM product WHERE id_product  =".$idname."");
         foreach ($productlist2 as $namelist) {
-            echo '<h2>'.$namelist->name_product.'</h2>';
+            echo '<h2>'.$namelist->name_product.'</h2>'; //echoes the product name to the product list
         }
         $single_product_share = $share_array[$arraycounter] / $hotototihank_sq * 100;
-        $single_product_share = round($single_product_share, 2);
-        echo '<h2>'.$single_product_share.'%</h2>';
+        $single_product_share = round($single_product_share, 2); //calculating the total area what the product takes from shelves + pallets and then rounds it up to 2 digits
+        echo '<h2>'.$single_product_share.'%</h2>'; //echoes the product area
         $arraycounter++;
     } 
     echo '<br>';
-    echo '<h3> Number of products in report: ' . $unique_products . '</h3>';
-    echo '<h3> Total store area used: ' . $hotototihank_sq / $total_store_area_sq * 100 . '%</h3>';
+    echo '<h3> Number of products in report: ' . $unique_products . '</h3>'; //echoes the unique product count which has been calculated by the rows in table
+    echo '<h3> Total store area used: ' . $hotototihank_sq / $total_store_area_sq * 100 . '%</h3>'; //divides the area used by all products with the area set by the user for the store and gives how many % has been filled according to our calculations
 echo '</div>';
 //echo '</div>';
 
@@ -2229,49 +2227,7 @@ $( "#ShowMe2" ).slideToggle( "slow", function() {
                 $id_store = $count->id_store;
             }
             $wpdb->last_query;
-            echo '<div style="background-color:white;float:left;">';
-            echo $wpdb->last_query;
-            echo '<br>';
-            echo $wpdb->show_errors;
-            echo '<br>';
-            echo $wpdb->last_error;
-            echo '<br>';
-            echo $id_report;
-            echo '<br>';
-            echo $id_main_chain;
-            echo '<br>';
-            echo $id_store_chain;
-            echo '<br>';
-            echo $id_store;
-            echo '<br>';
-            echo $date_finalreport;
-            echo '<br>';
-            echo $mt_hoto;
-            echo '<br>';
-            echo $mt_toti;
-            echo '<br>';
-            echo $mt_hank;
-            echo '<br>';
-            echo $mt;
-            echo '<br>';
-            echo $ruokakesko;
-            echo '<br>';
-            echo $sca;
-            echo '<br>';
-            echo $kimberly;
-            echo '<br>';
-            echo $majesta;
-            echo '<br>';
-            echo $horizon;
-            echo '<br>';
-            echo $srl;
-            echo '<br>';
-            echo $shs;
-            echo '<br>';
-            echo $total_products;
-            echo '<br>';
-            echo $date_finalreport;
-            echo '</div>';
+            
             
             $wpdb->insert(
                 'finalreport',
@@ -2324,12 +2280,7 @@ $( "#ShowMe2" ).slideToggle( "slow", function() {
             
             echo '</form>';
                 
-                
-            echo '<div style="background-color:white;float:left;">';
-            $wpdb->last_query;
-            $wpdb->show_errors;
-            $wpdb->last_error;
-            echo '</div>';
+
         }
         
         ?>

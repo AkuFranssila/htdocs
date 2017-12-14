@@ -22,12 +22,12 @@ global $wpdb; //connect to wordpress database
        // input testausta varten echo '<p>' .'TÄSSÄ NÄKYY FORMIN SYÖTE = ' . $name . '</p>';
    }
 ?>
-        <div class="previous-page">
+        <div class="previous-page"> <!-- button that when clicked takes the user one page back from the browsing history -->
             <a href="www.mypage.com" onclick="window.history.go(-1); return false;"><img class="back-arrow" src="<?php echo get_template_directory_uri(); ?>/img/back-arrow.png"></a>
             
         </div>
         
-        <div class="fixed-button">
+        <div class="fixed-button"> <!-- button that forwords the user to new store creation page -->
             <a href="http://127.0.0.1/wordpress/store-settings/new-store/"> New store </a>
         </div>
     </div>

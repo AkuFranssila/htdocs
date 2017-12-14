@@ -2,12 +2,6 @@
 
 <?php get_header(); ?>
 
-<script type="text/javascript">
-function keep_store_id () {
-    var stored_id = this.document.activeElement.getAttribute("name");
-}
-
-</script>
 
     <div class="app-container">
 <form class="storesearch-form" method="POST"> <!-- Start the form for store search -->

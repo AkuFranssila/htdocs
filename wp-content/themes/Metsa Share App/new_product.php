@@ -12,31 +12,18 @@
            echo '<div class="change-settings-single-result"><h2> Name: </h2><input name="name_product" type="textarea" value=""></div>'; //user input for the product name
            echo '<br>';
            
-           /*
-           echo '<select name="id_producer">';
-           $producerid = $outputsettings->id_producer;
-           echo '<div class="change-settings-single-result"><h2> Producer: </h2><input name="ean_product22" type="text" value="'.$outputsettings->ean_product.'"></div>';
-           echo '</select>';
-           
-           
-           echo '<br>';
-           echo '<select name="id_label">';
-           $labelid = $outputsettings->id_label;
-           echo '<div class="change-settings-single-result"><h2> Label: </h2><input name="ean_product2" type="text" value="'.$outputsettings->ean_product.'"></div>';
-           echo '</select>';
-           echo '<br>';
-            */
+ 
            echo '<div class="change-settings-single-result">';
-           echo '<h2> Producer: </h2>'; 
+           echo '<h2> Producer: </h2>'; //title for the box
             echo '<select name="name_producer">';
            $producerid = $outputsettings->id_producer;
-           $producers = 1;
+           $producers = 1; //for selecting the first producer when we go through all the producers from database
            $prodid = $wpdb->get_results("SELECT * FROM producer"); //Creating a dropdown menu for the producers 
             foreach ($prodid as $producer) {
-                if ($producerid == $producers) {
+                if ($producerid == $producers) { //if producer id matches that of a producer then echoes them and the first one will be automatically selected
                 echo '<option name="id_lab" type="text" value="'.$producer->id_producer.'" selected>'.$producer->name_producer.'</option>';
                     } else {
-                    echo '<option name="id_lab" type="text" value="'.$producer->id_producer.'">'.$producer->name_producer.'</option>';
+                    echo '<option name="id_lab" type="text" value="'.$producer->id_producer.'">'.$producer->name_producer.'</option>'; //normally echoes the rest of the producers without the selected option
                 }
                 $producers++;
             }
@@ -101,29 +88,25 @@
            
            
            echo '<br>';
-           echo '<div class="change-settings-single-result"><h2> EAN: </h2><input name="ean_product" type="text" value=""></div>';
+           echo '<div class="change-settings-single-result"><h2> EAN: </h2><input name="ean_product" type="text" value=""></div>'; //area where user can input the ean for the product
            echo '<br>';
-           echo '<div class="change-settings-single-result"><h2> Extra info: </h2><input name="desc_product" type="textarea" value=""></div>';
+           echo '<div class="change-settings-single-result"><h2> Extra info: </h2><input name="desc_product" type="textarea" value=""></div>'; //input field where user can input extra information about the product
            echo '<br>';
-           /* echo '<div class="change-settings-single-result"><h2> Product width: </h2><input name="width_product" type="text" value="'.$outputsettings->width_product.'"></div>';
-           echo '<br>';
-           echo '<div class="change-settings-single-result"><h2> Product height: </h2><input name="height_product" type="text" value="'.$outputsettings->height_product.'"></div>';
-           echo '<br>';
-           echo '<div class="change-settings-single-result"><h2> Product depth: </h2><input name="depth_product" type="text" value="'.$outputsettings->depth_product.'"></div>'; */
+
            echo '<br style="clear:both;">';  
            echo '<br>';
             echo '<div class="horizontal_checkbox">';
            echo '<h1 class="product-store-name">Width</h1>';
             echo '<select class="hidescroll" name="width_select" size="8">';
             //echo '<option value="0" name="0">0</selection>';
-            $width_select = 0;
-            while ($width_select < 1001) {
-                if ($width_select == $outputsettings->width_product) {
-                echo '<option value="'.$width_select.'" name="horizontal_selection" autofocus selected>'.$width_select.'</selection>';
+            $width_select = 0; //selecting the value if there already is one. If there isn't then it will give it a 0 as a default.
+            while ($width_select < 1001) { //maximum number count 1000
+                if ($width_select == $outputsettings->width_product) { //selecting the product width and comparing it to $width_select, if there isnt anything returns a null which reads as 0
+                echo '<option value="'.$width_select.'" name="horizontal_selection" autofocus selected>'.$width_select.'</selection>'; //will then echo option with SELECTED option which will be the one selected automatically
                 } else {
-                    echo '<option value="'.$width_select.'" name="horizontal_selection">'.$width_select.'</selection>';
+                    echo '<option value="'.$width_select.'" name="horizontal_selection">'.$width_select.'</selection>'; //then echoes rest of the fields up to 1000
                 }
-                $width_select++;
+                $width_select++; //adding a number to the counter 
             }
             echo '</select>';
             echo '</div>';
@@ -164,6 +147,8 @@
         
         
         if(isset($_POST['update_settings_submit'])) {
+            
+            //when clicking Accept button get all the ids for the following things
             $id_product = $_POST['id_product'];
             $ean_product = $_POST['ean_product'];
             $name_product = $_POST['name_product'];
